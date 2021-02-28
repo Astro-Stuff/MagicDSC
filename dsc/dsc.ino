@@ -31,13 +31,18 @@
  *
  */
 
-String firmwareVersion = "2.0";
+//2.0 first release
+//2.1 sending resoltuion to SkySafari
+
+String firmwareVersion = "2.1";
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiAP.h>
 
 const char *ssid = "stargazing";
 const char *password = "orionnebula";
+const long resolution_az = 2400;
+const long resolution_alt = 4800;
 
 WiFiServer server(80);
 WiFiClient client;
@@ -86,6 +91,10 @@ void loop() {
         }else if(c == 86) {
          client.print(firmwareVersion);
          client.print("\r"); 
+        }else if (c == 72)
+        {
+          printResolution();
+          client.print("\r"); 
         }
       }
     }
@@ -135,4 +144,16 @@ void printEncoderValue(long val)
     client.print("0");
 
   client.print(aval);  
+}
+
+void printResolution()
+{  
+
+   //char response[20];
+   //snprintf(response, 20, "%u-%u", STEPS_AZ, STEPS_ALT);
+   //remoteClient.println(response);
+
+    client.print(resolution_az);
+    client.print("-");
+    client.print(resolution_alt);
 }
