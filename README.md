@@ -1,4 +1,4 @@
-# Magic DSG
+# Magic DSC
 
 Digital setting circles for astronomical telescopes using ESP32 and two rotary encoders
 
