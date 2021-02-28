@@ -1,3 +1,36 @@
+/*
+ * Title       Magic Digital Setting Circles
+ * by          Florin M
+ *
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Description:
+ *   Full featured digital setting circles microcontroller for Equatorial and
+ *   Alt-Azimuth mounts, with Wi-Fi and bluetooth connectitity to Sky Safari.
+ *
+ * Author: Florin M
+ *   https://astrostuff.wixsite.com/magic/magic
+ *   
+ * Revision history, and newer versions:
+ *   See GitHub: https://github.com/MagicDigitalSettingCircles/DSC
+ *
+ * Documentation:
+ *   https://astrostuff.wixsite.com/magic/magic
+ *
+ */
+
 String firmwareVersion = "2.0";
 #include <WiFi.h>
 #include <WiFiClient.h>
