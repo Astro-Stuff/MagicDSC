@@ -1,48 +1,19 @@
 /*
- * Title       Magic Digital Setting Circles
- * by          Florin M
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Description:
- *   Full featured digital setting circles microcontroller for Equatorial and
- *   Alt-Azimuth mounts, with Wi-Fi and bluetooth connectitity to Sky Safari.
- *
- * Author: Florin M
- *   https://astrostuff.wixsite.com/magic/magic
- *   
- * Revision history, and newer versions:
- *   See GitHub: https://github.com/MagicDigitalSettingCircles/DSC
- *
- * Documentation:
- *   https://astrostuff.wixsite.com/magic/magic
- *
- */
 
-//2.0 first release
-//2.1 sending resoltuion to SkySafari
+2.0 first release
+2.1 added resolution
+2.2 added rezolution in firmware request        
+*/
 
-String firmwareVersion = "2.1";
+String firmwareVersion = "2.2";
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiAP.h>
 
 const char *ssid = "stargazing";
 const char *password = "orionnebula";
-const long resolution_az = 2400;
-const long resolution_alt = 4800;
+const long resolution_az = 18000;
+const long resolution_alt = -40500;
 
 WiFiServer server(80);
 WiFiClient client;
@@ -89,8 +60,7 @@ void loop() {
          printEncoderValue(encoderValueAl);
          client.print("\r");           
         }else if(c == 86) {
-         client.print(firmwareVersion);
-         client.print("\r"); 
+          printFirmware();
         }else if (c == 72)
         {
           printResolution();
@@ -156,4 +126,15 @@ void printResolution()
     client.print(resolution_az);
     client.print("-");
     client.print(resolution_alt);
+}
+
+void printFirmware()
+{
+  client.print("Magig DSC ");
+  client.print(firmwareVersion);
+  client.print(", az rezolution = ");
+  client.print(resolution_az);
+  client.print(", alt rezolution = ");
+  client.print(resolution_alt);         
+  client.print("\r"); 
 }
