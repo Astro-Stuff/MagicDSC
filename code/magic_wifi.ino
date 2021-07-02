@@ -43,7 +43,7 @@ String firmwareVersion = "2.2";
 const char *ssid = "stargazing";
 const char *password = "orionnebula";
 const long resolution_az = 18000;
-const long resolution_alt = -40500;
+const long resolution_alt = 40500;
 
 WiFiServer server(80);
 WiFiClient client;
